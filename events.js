@@ -35,7 +35,7 @@ var events = {
 
 _.each(events, function (eventData, domEventName) {
   var defaults = eventData.defaults
-  var eventName = eventData.name
+  var eventName = typeof eventData === 'string' ? eventData : eventData.name
   exports[eventName] = BaseEvent(function eventHandler (event, broadcast) {
     if (event.type !== domEventName) return
 
